@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -230,3 +233,1385 @@ footer{background:var(--navy2);border-top:1px solid var(--bord);padding:2.2rem 2
 @media(max-width:600px){.hero-3{grid-template-columns:1fr;}.grid-stars{grid-template-columns:1fr;}.grid-how{grid-template-columns:1fr 1fr;}.grid-exp{grid-template-columns:1fr;}.hide{display:none;}}
 </style>
 </head>
+
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="logo" onclick="go('home')"><span class="star">★</span> StarShare</div>
+  <div class="nav-links">
+    <a class="hide" onclick="go('explore')">Explore</a>
+    <a class="hide" onclick="go('explore')">Top Stars</a>
+    <a class="hide" onclick="scrollHow()">How it Works</a>
+    <a id="navPort" style="display:none" onclick="go('dashboard')">Portfolio</a>
+    <a id="navLogin" onclick="go('login')">Login</a>
+    <button class="btn btn-gold btn-sm" id="navSignup" onclick="go('register')">Sign Up</button>
+    <button class="btn btn-ghost btn-sm" id="navLogout" style="display:none" onclick="doLogout()">Logout</button>
+  </div>
+</nav>
+<button class="back-fab" id="backFab" onclick="goBack()">← Back</button>
+
+<!-- ===== HOME ===== -->
+<div id="home" class="page active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-img"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">⭐ Fan Investment Platform</div>
+      <h1 class="hero-h1">Own Shares of<br><span>Your Favorite Stars</span></h1>
+      <p class="hero-sub">Invest in actors, athletes, and comedians. When their popularity grows, your share grows.</p>
+      <div class="hero-cta">
+        <button class="btn btn-blue btn-lg" onclick="go('register')">Start Investing</button>
+        <button class="btn btn-outline btn-lg" onclick="go('explore')">Explore Stars</button>
+      </div>
+      <div class="hero-3">
+        <div class="hf"><div class="hf-icon">🏆</div><div class="hf-t">Buy Shares</div><div class="hf-d">Purchase fractional shares in your favorite celebrities starting from $10</div></div>
+        <div class="hf"><div class="hf-icon">📊</div><div class="hf-t">Track Popularity</div><div class="hf-d">Real-time metrics and investment performance dashboards</div></div>
+        <div class="hf"><div class="hf-icon">💰</div><div class="hf-t">Earn Profits</div><div class="hf-d">Earn returns as your star's brand value and revenue grows</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div><div class="sb-n">$4.2M</div><div class="sb-l">Total Invested</div></div>
+    <div><div class="sb-n">840+</div><div class="sb-l">Stars Listed</div></div>
+    <div><div class="sb-n">12K+</div><div class="sb-l">Active Investors</div></div>
+    <div><div class="sb-n">38%</div><div class="sb-l">Avg Annual ROI</div></div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-lbl">Trending Celebrities</div>
+    <h2 class="sec-h2">Top Stars to Invest In</h2>
+    <p class="sec-sub">Verified celebrities with growing audiences and revenue streams</p>
+    <div class="grid-stars">
+      <div class="scard" onclick="buyShare('Matt Rife','Comedian',80)">
+        <div class="scard-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Matt_Rife_2023.jpg/440px-Matt_Rife_2023.jpg" alt="Matt Rife" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80'">
+          <div class="scard-img-ov"></div><div class="scard-badge">🎤 Comedian</div>
+          <div class="scard-name-ov"><div class="scard-name">Matt Rife</div><div class="scard-role">Stand-Up Comedian · 17M followers</div></div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-stats">
+            <div class="ss"><div class="ss-v" style="color:var(--gold)">$80</div><div class="ss-l">/ Share</div></div>
+            <div class="ss"><div class="ss-v" style="color:var(--ok)">+41%</div><div class="ss-l">ROI</div></div>
+            <div class="ss"><div class="ss-v">3.2K</div><div class="ss-l">Investors</div></div>
+          </div>
+          <div class="scard-prog"><div class="scard-bar" style="width:78%"></div></div>
+          <div class="scard-prog-lbl"><span>78% funded</span><span>$22K left</span></div>
+          <div class="scard-btns"><button class="btn btn-blue">Invest</button><button class="btn btn-ghost">View Details</button></div>
+        </div>
+      </div>
+      <div class="scard" onclick="buyShare('Stephen Amell','Actor',120)">
+        <div class="scard-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Stephen_Amell_SDCC_2014.jpg/440px-Stephen_Amell_SDCC_2014.jpg" alt="Stephen Amell" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80'">
+          <div class="scard-img-ov"></div><div class="scard-badge">🎬 Actor</div>
+          <div class="scard-name-ov"><div class="scard-name">Stephen Amell</div><div class="scard-role">Actor — Arrow · 5.4M followers</div></div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-stats">
+            <div class="ss"><div class="ss-v" style="color:var(--gold)">$120</div><div class="ss-l">/ Share</div></div>
+            <div class="ss"><div class="ss-v" style="color:var(--ok)">+29%</div><div class="ss-l">ROI</div></div>
+            <div class="ss"><div class="ss-v">1.8K</div><div class="ss-l">Investors</div></div>
+          </div>
+          <div class="scard-prog"><div class="scard-bar" style="width:62%"></div></div>
+          <div class="scard-prog-lbl"><span>62% funded</span><span>$38K left</span></div>
+          <div class="scard-btns"><button class="btn btn-blue">Invest</button><button class="btn btn-ghost">View Details</button></div>
+        </div>
+      </div>
+      <div class="scard" onclick="buyShare('Pedro Pascal','Actor',200)">
+        <div class="scard-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Pedro_Pascal_-_San_Diego_Comic-Con_2022_%28cropped%29.jpg/440px-Pedro_Pascal_-_San_Diego_Comic-Con_2022_%28cropped%29.jpg" alt="Pedro Pascal" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80'">
+          <div class="scard-img-ov"></div><div class="scard-badge">🎬 Actor</div>
+          <div class="scard-name-ov"><div class="scard-name">Pedro Pascal</div><div class="scard-role">Actor — The Mandalorian · 12M followers</div></div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-stats">
+            <div class="ss"><div class="ss-v" style="color:var(--gold)">$200</div><div class="ss-l">/ Share</div></div>
+            <div class="ss"><div class="ss-v" style="color:var(--ok)">+55%</div><div class="ss-l">ROI</div></div>
+            <div class="ss"><div class="ss-v">5.1K</div><div class="ss-l">Investors</div></div>
+          </div>
+          <div class="scard-prog"><div class="scard-bar" style="width:91%"></div></div>
+          <div class="scard-prog-lbl"><span>91% funded</span><span>$9K left</span></div>
+          <div class="scard-btns"><button class="btn btn-blue">Invest</button><button class="btn btn-ghost">View Details</button></div>
+        </div>
+      </div>
+      <div class="scard" onclick="buyShare('Lexie Hull','WNBA Athlete',60)">
+        <div class="scard-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Lexie_Hull_%2852719527861%29_%28cropped%29.jpg/440px-Lexie_Hull_%2852719527861%29_%28cropped%29.jpg" alt="Lexie Hull" onerror="this.src='https://images.unsplash.com/photo-1494790108755-2616b332f4e4?w=400&q=80'">
+          <div class="scard-img-ov"></div><div class="scard-badge">🏀 WNBA</div>
+          <div class="scard-name-ov"><div class="scard-name">Lexie Hull</div><div class="scard-role">WNBA — Indiana Fever · 280K followers</div></div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-stats">
+            <div class="ss"><div class="ss-v" style="color:var(--gold)">$60</div><div class="ss-l">/ Share</div></div>
+            <div class="ss"><div class="ss-v" style="color:var(--ok)">+22%</div><div class="ss-l">ROI</div></div>
+            <div class="ss"><div class="ss-v">940</div><div class="ss-l">Investors</div></div>
+          </div>
+          <div class="scard-prog"><div class="scard-bar" style="width:44%"></div></div>
+          <div class="scard-prog-lbl"><span>44% funded</span><span>$56K left</span></div>
+          <div class="scard-btns"><button class="btn btn-blue">Invest</button><button class="btn btn-ghost">View Details</button></div>
+        </div>
+      </div>
+      <div class="scard" onclick="buyShare('Sophie Cunningham','WNBA Athlete',65)">
+        <div class="scard-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sophie_Cunningham_%2852719527571%29_%28cropped%29.jpg/440px-Sophie_Cunningham_%2852719527571%29_%28cropped%29.jpg" alt="Sophie Cunningham" onerror="this.src='https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80'">
+          <div class="scard-img-ov"></div><div class="scard-badge">🏀 WNBA</div>
+          <div class="scard-name-ov"><div class="scard-name">Sophie Cunningham</div><div class="scard-role">WNBA — Phoenix Mercury · 310K followers</div></div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-stats">
+            <div class="ss"><div class="ss-v" style="color:var(--gold)">$65</div><div class="ss-l">/ Share</div></div>
+            <div class="ss"><div class="ss-v" style="color:var(--ok)">+26%</div><div class="ss-l">ROI</div></div>
+            <div class="ss"><div class="ss-v">1.1K</div><div class="ss-l">Investors</div></div>
+          </div>
+          <div class="scard-prog"><div class="scard-bar" style="width:51%"></div></div>
+          <div class="scard-prog-lbl"><span>51% funded</span><span>$49K left</span></div>
+          <div class="scard-btns"><button class="btn btn-blue">Invest</button><button class="btn btn-ghost">View Details</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="how-sec" style="background:var(--card);padding:4rem 0;border-top:1px solid var(--bord);border-bottom:1px solid var(--bord);">
+    <div class="sec" style="padding-top:0;padding-bottom:0">
+      <div class="sec-lbl">Process</div>
+      <h2 class="sec-h2">How It Works</h2>
+      <p class="sec-sub">Start investing in your favorite star in minutes</p>
+      <div class="grid-how">
+        <div class="hcard"><div class="hcard-n">01</div><div class="hcard-icon">🔍</div><div class="hcard-t">Pick Your Star</div><div class="hcard-d">Browse our verified celebrities and choose who you believe in</div></div>
+        <div class="hcard"><div class="hcard-n">02</div><div class="hcard-icon">💳</div><div class="hcard-t">Fund Wallet</div><div class="hcard-d">Deposit via Paystack card payment or send Bitcoin directly</div></div>
+        <div class="hcard"><div class="hcard-n">03</div><div class="hcard-icon">📈</div><div class="hcard-t">Earn Returns</div><div class="hcard-d">As your star's brand value grows, earn your share of profits</div></div>
+        <div class="hcard"><div class="hcard-n">04</div><div class="hcard-icon">🎟️</div><div class="hcard-t">Unlock Perks</div><div class="hcard-d">Top investors get exclusive meet & greet passes and VIP access</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-lbl">Exclusive Experiences</div>
+    <h2 class="sec-h2">Fan Experiences</h2>
+    <p class="sec-sub">More than just returns — real moments with your favorite stars</p>
+    <div class="grid-exp">
+      <div class="ecard"><div class="ecard-badge hot">🔥 Popular</div><div class="ecard-icon">🤝</div><div class="ecard-title">Meet & Greet Pass</div><div class="ecard-desc">Private 30-min backstage session after the show. Photo included.</div><div class="ecard-price">$80 <span>/ pass</span></div><button class="btn btn-gold btn-full" onclick="buyExp('Meet & Greet Pass',80)">Get Pass →</button></div>
+      <div class="ecard"><div class="ecard-badge rare">💎 VIP</div><div class="ecard-icon">🎭</div><div class="ecard-title">VIP Backstage Access</div><div class="ecard-desc">Full backstage tour, soundcheck, signed item and exclusive merch.</div><div class="ecard-price">$250 <span>/ package</span></div><button class="btn btn-gold btn-full" onclick="buyExp('VIP Backstage Access',250)">Get VIP →</button></div>
+      <div class="ecard"><div class="ecard-badge new2">✨ New</div><div class="ecard-icon">📞</div><div class="ecard-title">1-on-1 Video Call</div><div class="ecard-desc">15-minute private video call. Ask anything, get personalized shoutouts.</div><div class="ecard-price">$120 <span>/ session</span></div><button class="btn btn-gold btn-full" onclick="buyExp('1-on-1 Video Call',120)">Book Call →</button></div>
+      <div class="ecard"><div class="ecard-icon">🃏</div><div class="ecard-title">Digital Fan Card</div><div class="ecard-desc">Limited edition collectible digital card with verified ownership.</div><div class="ecard-price">$35 <span>/ card</span></div><button class="btn btn-gold btn-full" onclick="buyExp('Digital Fan Card',35)">Collect →</button></div>
+      <div class="ecard"><div class="ecard-icon">🏆</div><div class="ecard-title">VIP Fan Membership</div><div class="ecard-desc">Annual membership with early content access, merch drops, monthly calls.</div><div class="ecard-price">$199 <span>/ year</span></div><button class="btn btn-gold btn-full" onclick="buyExp('VIP Fan Membership',199)">Join →</button></div>
+      <div class="ecard"><div class="ecard-icon">⚡</div><div class="ecard-title">Early Access Content</div><div class="ecard-desc">Get content 30 days before public release. Exclusive to investors.</div><div class="ecard-price">$25 <span>/ month</span></div><button class="btn btn-gold btn-full" onclick="buyExp('Early Access Content',25)">Subscribe →</button></div>
+    </div>
+  </div>
+
+  <div style="padding:0 2rem 4rem">
+    <div class="cta-box">
+      <h2>Ready to Own a Piece of Your<br><span style="background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Favorite Star?</span></h2>
+      <p>Join 12,400+ fans already investing. Pay with card or Bitcoin.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-gold btn-lg" onclick="go('register')">Start Investing →</button>
+        <button class="btn btn-outline btn-lg" onclick="go('explore')">Browse Stars</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="foot-logo"><span style="color:var(--gold)">★</span> StarShare</div>
+    <p style="color:var(--mut);font-size:.82rem;margin-bottom:.3rem">Invest in Fame. Profit from Popularity.</p>
+    <p style="color:var(--mut);font-size:.7rem">© 2025 StarShare. All rights reserved. Fan investments carry risk.</p>
+  </footer>
+</div>
+
+<!-- ===== EXPLORE ===== -->
+<div id="explore" class="page">
+  <nav style="z-index:1001">
+    <div class="logo" onclick="go('home')"><span class="star">★</span> StarShare</div>
+    <div class="nav-links">
+      <button class="btn btn-ghost btn-sm" id="expLogin" onclick="go('login')">Login</button>
+      <button class="btn btn-gold btn-sm" id="expSignup" onclick="go('register')">Sign Up</button>
+      <button class="btn btn-ghost btn-sm" id="expLogout" style="display:none" onclick="doLogout()">Logout</button>
+    </div>
+  </nav>
+  <div style="padding-top:62px">
+    <div style="background:var(--card);border-bottom:1px solid var(--bord);padding:1.6rem 2rem">
+      <h2 style="font-family:'Montserrat';font-size:1.35rem;font-weight:800;margin-bottom:.25rem">Top Stars to Invest In</h2>
+      <p style="color:var(--mut);font-size:.84rem;margin-bottom:1rem">Choose your star and start earning</p>
+      <div style="display:flex;gap:.45rem;flex-wrap:wrap">
+        <button class="btn btn-gold btn-sm" onclick="filterEx('all',this)">All</button>
+        <button class="btn btn-ghost btn-sm" onclick="filterEx('actor',this)">🎬 Actors</button>
+        <button class="btn btn-ghost btn-sm" onclick="filterEx('athlete',this)">🏀 Athletes</button>
+        <button class="btn btn-ghost btn-sm" onclick="filterEx('comedian',this)">🎤 Comedians</button>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;padding:2rem">
+      <div class="grid-stars" id="exploreGrid">
+        <div class="scard" data-cat="comedian" onclick="buyShare('Matt Rife','Comedian',80)"><div class="scard-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Matt_Rife_2023.jpg/440px-Matt_Rife_2023.jpg" alt="Matt Rife" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80'"><div class="scard-img-ov"></div><div class="scard-badge">🎤 Comedian</div><div class="scard-name-ov"><div class="scard-name">Matt Rife</div><div class="scard-role">Stand-Up · 17M followers</div></div></div><div class="scard-body"><div class="scard-stats"><div class="ss"><div class="ss-v" style="color:var(--gold)">$80</div><div class="ss-l">/ Share</div></div><div class="ss"><div class="ss-v" style="color:var(--ok)">+41%</div><div class="ss-l">ROI</div></div><div class="ss"><div class="ss-v">3.2K</div><div class="ss-l">Investors</div></div></div><div class="scard-prog"><div class="scard-bar" style="width:78%"></div></div><div class="scard-prog-lbl"><span>78% funded</span><span>3.2K investors</span></div><div class="scard-btns"><button class="btn btn-blue">Invest</button><button class="btn btn-ghost">Details</button></div></div></div>
+        <div class="scard" data-cat="actor" onclick="buyShare('Stephen Amell','Actor',120)"><div class="scard-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Stephen_Amell_SDCC_2014.jpg/440px-Stephen_Amell_SDCC_2014.jpg" alt="Stephen Amell" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80'"><div class="scard-img-ov"></div><div class="scard-badge">🎬 Actor</div><div class="scard-name-ov"><div class="scard-name">Stephen Amell</div><div class="scard-role">Actor (Arrow) · 5.4M followers</div></div></div><div class="scard-body"><div class="scard-stats"><div class="ss"><div class="ss-v" style="color:var(--gold)">$120</div><div class="ss-l">/ Share</div></div><div class="ss"><div class="ss-v" style="color:var(--ok)">+29%</div><div class="ss-l">ROI</div></div><div class="ss"><div class="ss-v">1.8K</div><div class="ss-l">Investors</div></div></div><div class="scard-prog"><div class="scard-bar" style="width:62%"></div></div><div class="scard-prog-lbl"><span>62% funded</span><span>1.8K investors</span></div><div class="scard-btns"><button class="btn btn-blue">Invest</button><button class="btn btn-ghost">Details</button></div></div></div>
+        <div class="scard" data-cat="actor" onclick="buyShare('Pedro Pascal','Actor',200)"><div class="scard-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Pedro_Pascal_-_San_Diego_Comic-Con_2022_%28cropped%29.jpg/440px-Pedro_Pascal_-_San_Diego_Comic-Con_2022_%28cropped%29.jpg" alt="Pedro Pascal" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80'"><div class="scard-img-ov"></div><div class="scard-badge">🎬 Actor</div><div class="scard-name-ov"><div class="scard-name">Pedro Pascal</div><div class="scard-role">Actor (Mandalorian) · 12M followers</div></div></div><div class="scard-body"><div class="scard-stats"><div class="ss"><div class="ss-v" style="color:var(--gold)">$200</div><div class="ss-l">/ Share</div></div><div class="ss"><div class="ss-v" style="color:var(--ok)">+55%</div><div class="ss-l">ROI</div></div><div class="ss"><div class="ss-v">5.1K</div><div class="ss-l">Investors</div></div></div><div class="scard-prog"><div class="scard-bar" style="width:91%"></div></div><div class="scard-prog-lbl"><span>91% funded</span><span>5.1K investors</span></div><div class="scard-btns"><button class="btn btn-blue">Invest</button><button class="btn btn-ghost">Details</button></div></div></div>
+        <div class="scard" data-cat="athlete" onclick="buyShare('Lexie Hull','WNBA Athlete',60)"><div class="scard-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Lexie_Hull_%2852719527861%29_%28cropped%29.jpg/440px-Lexie_Hull_%2852719527861%29_%28cropped%29.jpg" alt="Lexie Hull" onerror="this.src='https://images.unsplash.com/photo-1494790108755-2616b332f4e4?w=400&q=80'"><div class="scard-img-ov"></div><div class="scard-badge">🏀 WNBA</div><div class="scard-name-ov"><div class="scard-name">Lexie Hull</div><div class="scard-role">WNBA — Indiana Fever · 280K</div></div></div><div class="scard-body"><div class="scard-stats"><div class="ss"><div class="ss-v" style="color:var(--gold)">$60</div><div class="ss-l">/ Share</div></div><div class="ss"><div class="ss-v" style="color:var(--ok)">+22%</div><div class="ss-l">ROI</div></div><div class="ss"><div class="ss-v">940</div><div class="ss-l">Investors</div></div></div><div class="scard-prog"><div class="scard-bar" style="width:44%"></div></div><div class="scard-prog-lbl"><span>44% funded</span><span>940 investors</span></div><div class="scard-btns"><button class="btn btn-blue">Invest</button><button class="btn btn-ghost">Details</button></div></div></div>
+        <div class="scard" data-cat="athlete" onclick="buyShare('Sophie Cunningham','WNBA Athlete',65)"><div class="scard-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sophie_Cunningham_%2852719527571%29_%28cropped%29.jpg/440px-Sophie_Cunningham_%2852719527571%29_%28cropped%29.jpg" alt="Sophie Cunningham" onerror="this.src='https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80'"><div class="scard-img-ov"></div><div class="scard-badge">🏀 WNBA</div><div class="scard-name-ov"><div class="scard-name">Sophie Cunningham</div><div class="scard-role">WNBA — Phoenix Mercury · 310K</div></div></div><div class="scard-body"><div class="scard-stats"><div class="ss"><div class="ss-v" style="color:var(--gold)">$65</div><div class="ss-l">/ Share</div></div><div class="ss"><div class="ss-v" style="color:var(--ok)">+26%</div><div class="ss-l">ROI</div></div><div class="ss"><div class="ss-v">1.1K</div><div class="ss-l">Investors</div></div></div><div class="scard-prog"><div class="scard-bar" style="width:51%"></div></div><div class="scard-prog-lbl"><span>51% funded</span><span>1.1K investors</span></div><div class="scard-btns"><button class="btn btn-blue">Invest</button><button class="btn btn-ghost">Details</button></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LOGIN ===== -->
+<div id="login" class="page">
+  <div class="auth-wrap">
+    <div class="auth-box">
+      <div class="auth-logo"><span style="color:var(--gold)">★</span> StarShare</div>
+      <div class="auth-tag">Invest in Fame. Profit from Popularity.</div>
+      <h2>Login</h2>
+      <div class="fg"><label>Email Address</label><input type="email" id="le" placeholder="Email Address"></div>
+      <div class="fg"><label>Password</label><div class="pw-wrap"><input type="password" id="lp" placeholder="Password"><button class="pw-eye" onclick="epw('lp',this)">👁</button></div></div>
+      <div class="rem-row"><input type="checkbox" id="rem"><label for="rem">Remember Me</label></div>
+      <button class="btn btn-gold btn-full" id="loginBtn" onclick="doLogin()" style="margin-bottom:.65rem">Login</button>
+      <div class="divid">or</div>
+      <button class="btn btn-blue btn-full" onclick="go('register')" style="margin-bottom:.85rem">Sign Up</button>
+      <div class="divid">OR CONTINUE WITH</div>
+      <div class="soc-btns">
+        <button class="soc-btn" onclick="toast('Google login coming soon!')">🌐 Google</button>
+        <button class="soc-btn" onclick="toast('Apple login coming soon!')"> Apple</button>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:.74rem;color:var(--mut);margin-top:.4rem">
+        <a style="cursor:pointer" onclick="toast('Contact support@starshare.com')">Forgot password?</a>
+        <a onclick="go('register')" style="color:var(--gold);cursor:pointer;font-weight:600">Create Account</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== REGISTER ===== -->
+<div id="register" class="page">
+  <div class="auth-wrap">
+    <div class="auth-box">
+      <div class="auth-logo"><span style="color:var(--gold)">★</span> StarShare</div>
+      <div class="auth-tag">Start investing in your favorite stars today</div>
+      <h2>Create Account</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem">
+        <div class="fg"><label>First Name</label><input type="text" id="rf" placeholder="John"></div>
+        <div class="fg"><label>Last Name</label><input type="text" id="rl" placeholder="Doe"></div>
+      </div>
+      <div class="fg"><label>Email</label><input type="email" id="re" placeholder="you@example.com"></div>
+      <div class="fg"><label>Phone</label><input type="tel" id="rph" placeholder="+1 234 567 8900"></div>
+      <div class="fg"><label>Password</label><div class="pw-wrap"><input type="password" id="rp" placeholder="Min 6 characters"><button class="pw-eye" onclick="epw('rp',this)">👁</button></div></div>
+      <div class="fg"><label>Confirm Password</label><input type="password" id="rp2" placeholder="Repeat password"></div>
+      <button class="btn btn-gold btn-full" id="regBtn" onclick="doRegister()" style="margin-top:.3rem">Create Account →</button>
+      <div class="auth-sw">Already have an account? <a onclick="go('login')">Login</a></div>
+      <div style="text-align:center;margin-top:.4rem"><a style="color:var(--mut);font-size:.74rem;cursor:pointer" onclick="go('home')">← Back to Home</a></div>
+    </div>
+  </div>
+</div>
+<!-- ===== DASHBOARD ===== -->
+<div id="dashboard" class="page">
+  <nav style="z-index:1000">
+    <div class="logo"><span class="star">★</span> StarShare</div>
+    <div class="nav-links">
+      <a onclick="go('explore')">Explore</a>
+      <span style="color:var(--mut);font-size:.82rem" id="dwelcome">👤 Investor</span>
+      <button class="btn btn-ghost btn-sm" onclick="doLogout()">Logout</button>
+    </div>
+  </nav>
+  <div class="dash-layout">
+    <div class="dash-sb">
+      <div class="sb-sec">Main</div>
+      <div class="sb-i on" onclick="dsh('dhome',this)"><span class="ic">📊</span> Dashboard</div>
+      <div class="sb-i" onclick="dsh('dport',this)"><span class="ic">📈</span> Portfolio</div>
+      <div class="sb-i" onclick="dsh('dpasses',this)"><span class="ic">🎟️</span> My Passes</div>
+      <div class="sb-i" onclick="dsh('dwallet',this)"><span class="ic">💰</span> Wallet</div>
+      <div class="sb-i" onclick="go('explore')"><span class="ic">🔍</span> Explore Stars</div>
+      <div class="sb-div"></div>
+      <div class="sb-sec">Account</div>
+      <div class="sb-i" onclick="dsh('dprofile',this)"><span class="ic">👤</span> Profile</div>
+    </div>
+    <div class="dash-main">
+
+      <!-- HOME TAB -->
+      <div id="dhome">
+        <div class="dash-hd">
+          <div><h1>Investor Dashboard</h1><p id="ddate">Welcome back</p></div>
+          <button class="btn btn-gold btn-sm" onclick="go('explore')">+ New Investment</button>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="kpi-l">Wallet Balance</div><div class="kpi-v" id="kwbal" style="color:var(--gold)">$0</div><div class="kpi-s">Available</div></div>
+          <div class="kpi"><div class="kpi-l">Total Invested</div><div class="kpi-v" id="kpval">$0</div></div>
+          <div class="kpi"><div class="kpi-l">Total Earned</div><div class="kpi-v" id="kreturns" style="color:var(--ok)">$0</div></div>
+          <div class="kpi"><div class="kpi-l">Active Passes</div><div class="kpi-v" id="kpasses">0</div></div>
+        </div>
+        <div class="panel" style="margin-bottom:1.1rem">
+          <div class="panel-t">Earnings Overview</div>
+          <div class="chart-area">
+            <svg class="chart-svg" viewBox="0 0 600 140" preserveAspectRatio="none">
+              <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0b429" stop-opacity=".28"/><stop offset="100%" stop-color="#f0b429" stop-opacity="0"/></linearGradient></defs>
+              <path d="M0,115 C50,105 80,95 120,78 C160,62 180,82 230,57 C280,32 300,47 340,36 C380,26 410,41 450,29 C490,17 530,21 600,11" fill="none" stroke="#f0b429" stroke-width="2.5"/>
+              <path d="M0,115 C50,105 80,95 120,78 C160,62 180,82 230,57 C280,32 300,47 340,36 C380,26 410,41 450,29 C490,17 530,21 600,11 L600,140 L0,140 Z" fill="url(#cg)"/>
+              <path d="M0,85 C60,88 100,80 160,72 C220,64 250,77 300,67 C350,57 380,64 440,52 C480,44 540,49 600,40" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4,3" opacity=".45"/>
+              <text x="8" y="135" font-size="9" fill="#8899aa" font-family="monospace">Jan</text>
+              <text x="94" y="135" font-size="9" fill="#8899aa" font-family="monospace">Feb</text>
+              <text x="180" y="135" font-size="9" fill="#8899aa" font-family="monospace">Mar</text>
+              <text x="266" y="135" font-size="9" fill="#8899aa" font-family="monospace">Apr</text>
+              <text x="352" y="135" font-size="9" fill="#8899aa" font-family="monospace">May</text>
+              <text x="438" y="135" font-size="9" fill="#8899aa" font-family="monospace">Jun</text>
+              <text x="524" y="135" font-size="9" fill="#8899aa" font-family="monospace">Jul</text>
+            </svg>
+          </div>
+        </div>
+        <div class="dgrid">
+          <div class="panel"><div class="panel-t">Recent Activity</div><div id="drecent"><p style="color:var(--mut);font-size:.84rem">No activity yet. <a onclick="go('explore')" style="color:var(--gold);cursor:pointer;font-weight:600">Explore stars →</a></p></div></div>
+          <div class="panel"><div class="panel-t">Quick Tips</div>
+            <div style="display:flex;flex-direction:column;gap:.6rem">
+              <div style="display:flex;gap:.45rem;font-size:.8rem;color:var(--mut)"><span style="color:var(--gold)">✓</span>Fund wallet via Paystack or Bitcoin to invest instantly</div>
+              <div style="display:flex;gap:.45rem;font-size:.8rem;color:var(--mut)"><span style="color:var(--ok)">✓</span>Top investors unlock free meet &amp; greet passes</div>
+              <div style="display:flex;gap:.45rem;font-size:.8rem;color:var(--mut)"><span style="color:var(--blue2)">✓</span>30-day satisfaction guarantee on all purchases</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PORTFOLIO TAB -->
+      <div id="dport" style="display:none">
+        <div class="dash-hd"><div><h1>Portfolio</h1><p>Your star investments</p></div><button class="btn btn-gold btn-sm" onclick="go('explore')">+ Buy More</button></div>
+        <div class="panel"><div class="panel-t">Holdings</div><div id="portBody"><p style="color:var(--mut);font-size:.84rem">No investments yet. <a onclick="go('explore')" style="color:var(--gold);cursor:pointer">Browse stars →</a></p></div></div>
+      </div>
+
+      <!-- PASSES TAB -->
+      <div id="dpasses" style="display:none">
+        <div class="dash-hd"><div><h1>My Passes</h1><p>Experience tickets &amp; fan passes</p></div></div>
+        <div class="panel"><div class="panel-t">Owned Passes</div><div id="passBody"><p style="color:var(--mut);font-size:.84rem">No passes yet.</p></div></div>
+      </div>
+
+      <!-- WALLET TAB -->
+      <div id="dwallet" style="display:none">
+        <div class="dash-hd"><div><h1>Wallet</h1><p>Deposit and manage funds</p></div></div>
+        <div class="wal-card">
+          <div class="wal-lbl">Available Balance</div>
+          <div class="wal-amt" id="wbal">$0.00</div>
+          <div class="wal-sub">Ready to invest in any star</div>
+          <div class="wal-actions">
+            <button class="wal-btn p" onclick="openDeposit()">+ Deposit</button>
+            <button class="wal-btn s" onclick="go('explore')">Browse Stars</button>
+          </div>
+        </div>
+        <div class="panel"><div class="panel-t">Transaction History</div><div id="wtxlog"><p style="color:var(--mut);font-size:.84rem">No transactions yet.</p></div></div>
+      </div>
+
+      <!-- PROFILE TAB -->
+      <div id="dprofile" style="display:none">
+        <div class="dash-hd"><div><h1>Profile</h1></div></div>
+        <div class="panel" style="max-width:440px"><div class="panel-t">Account Info</div>
+          <div class="fg"><label>Full Name</label><input type="text" id="pname" readonly style="background:rgba(255,255,255,.03)"></div>
+          <div class="fg"><label>Email</label><input type="email" id="pemail" readonly style="background:rgba(255,255,255,.03)"></div>
+          <div class="fg"><label>Phone</label><input type="tel" id="pphone" readonly style="background:rgba(255,255,255,.03)"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="mobnav">
+    <div class="mob-btn on" onclick="dsh('dhome',this);mobOn(this)"><span>📊</span>Home</div>
+    <div class="mob-btn" onclick="dsh('dport',this);mobOn(this)"><span>📈</span>Portfolio</div>
+    <div class="mob-btn" onclick="dsh('dpasses',this);mobOn(this)"><span>🎟️</span>Passes</div>
+    <div class="mob-btn" onclick="dsh('dwallet',this);mobOn(this)"><span>💰</span>Wallet</div>
+    <div class="mob-btn" onclick="go('explore')"><span>🔍</span>Explore</div>
+  </div>
+</div>
+
+<!-- ===== CHECKOUT ===== -->
+<div id="checkout" class="page">
+  <div class="co-wrap">
+    <div class="co-title">Complete Your Investment</div>
+    <div class="co-grid">
+      <div>
+        <div class="panel" style="margin-bottom:1rem">
+          <div class="panel-t">Your Details</div>
+          <div class="fg"><label>Full Name</label><input type="text" id="cn" placeholder="Your full name"></div>
+          <div class="fg"><label>Email Address</label><input type="email" id="ce" placeholder="you@example.com"></div>
+          <div class="fg"><label>Phone</label><input type="tel" id="cph" placeholder="+1 234 567 8900"></div>
+          <div class="fg"><label>Quantity (Shares)</label>
+            <select id="cq" onchange="uqty()">
+              <option value="1">1 Share</option>
+              <option value="5">5 Shares</option>
+              <option value="10">10 Shares</option>
+              <option value="25">25 Shares</option>
+              <option value="50">50 Shares</option>
+            </select>
+          </div>
+        </div>
+        <div class="wbb" id="walletBuyBar" style="display:none">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem">
+            <div><div class="wbb-l">Wallet Balance</div><div class="wbb-v" id="wbalChk">$0</div></div>
+            <button class="btn btn-gold" onclick="buyWithWallet()">⚡ Buy Instantly</button>
+          </div>
+          <div style="color:var(--mut);font-size:.72rem;margin-top:.4rem">Deducted from wallet — delivered immediately</div>
+        </div>
+        <div class="panel">
+          <div class="panel-t">Payment Method</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:.95rem">
+            <button id="payCardBtn" onclick="setPay('card')" style="padding:.62rem;border-radius:8px;border:1.5px solid var(--gold);background:rgba(240,180,41,.08);color:var(--gold);font-family:'Montserrat';font-weight:700;font-size:.78rem;cursor:pointer">💳 Card / Paystack</button>
+            <button id="payCryptoBtn" onclick="setPay('crypto')" style="padding:.62rem;border-radius:8px;border:1px solid var(--bord);background:rgba(255,255,255,.05);color:var(--txt);font-family:'Montserrat';font-weight:700;font-size:.78rem;cursor:pointer;transition:all .2s">₿ Pay with Bitcoin</button>
+          </div>
+          <div id="cardBox">
+            <div style="background:rgba(255,255,255,.03);border:1px solid var(--bord);border-radius:9px;padding:.95rem;margin-bottom:.9rem">
+              <div style="font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);margin-bottom:.7rem">OPay Transfer Details</div>
+              <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid var(--bord);font-size:.83rem"><span style="color:var(--mut)">Bank</span><span style="font-weight:600">OPay</span></div>
+              <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid var(--bord);font-size:.83rem"><span style="color:var(--mut)">Account</span><span style="font-weight:600">6481012827</span></div>
+              <div style="display:flex;justify-content:space-between;padding:.3rem 0;font-size:.83rem"><span style="color:var(--mut)">Amount</span><span style="font-weight:700;color:var(--gold)" id="camount">—</span></div>
+            </div>
+          </div>
+          <div id="cryptoBox" style="display:none">
+            <div style="background:rgba(255,255,255,.03);border:1px solid var(--bord);border-radius:9px;padding:.95rem;margin-bottom:.9rem">
+              <div style="font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);margin-bottom:.5rem">Pay with Bitcoin</div>
+              <div style="font-size:.82rem;color:var(--mut);margin-bottom:.4rem"><span id="btcQty">—</span> · <span id="btcAmt" style="color:var(--gold);font-weight:700">—</span></div>
+              <div style="font-size:.66rem;font-weight:700;letter-spacing:1px;color:var(--mut);margin:.6rem 0 .25rem">Bitcoin Address</div>
+              <div class="btc-addr">bc1que9u32a7ecvezt2ul3dh7vgwe6mvuu3sxmd3ma</div>
+              <button class="btn btn-ghost btn-sm" style="width:100%;border-radius:7px;margin-bottom:.65rem" onclick="copyBTC()">📋 Copy Address</button>
+              <div style="display:flex;justify-content:center">
+                <svg viewBox="0 0 100 100" width="110" height="110" style="border-radius:6px;background:#fff;padding:6px">
+                  <rect x="10" y="10" width="28" height="28" fill="none" stroke="#000" stroke-width="3"/><rect x="16" y="16" width="16" height="16" fill="#000"/>
+                  <rect x="62" y="10" width="28" height="28" fill="none" stroke="#000" stroke-width="3"/><rect x="68" y="16" width="16" height="16" fill="#000"/>
+                  <rect x="10" y="62" width="28" height="28" fill="none" stroke="#000" stroke-width="3"/><rect x="16" y="68" width="16" height="16" fill="#000"/>
+                  <rect x="44" y="10" width="6" height="6" fill="#000"/><rect x="44" y="22" width="6" height="6" fill="#000"/>
+                  <rect x="44" y="44" width="6" height="6" fill="#000"/><rect x="50" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="56" y="44" width="6" height="6" fill="#000"/><rect x="62" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="68" y="44" width="6" height="6" fill="#000"/><rect x="74" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="80" y="44" width="6" height="6" fill="#000"/><rect x="44" y="56" width="6" height="6" fill="#000"/>
+                  <rect x="62" y="62" width="6" height="6" fill="#000"/><rect x="74" y="62" width="6" height="6" fill="#000"/>
+                  <rect x="80" y="68" width="6" height="6" fill="#000"/><rect x="68" y="74" width="6" height="6" fill="#000"/>
+                  <rect x="80" y="74" width="6" height="6" fill="#000"/><rect x="62" y="80" width="6" height="6" fill="#000"/>
+                  <rect x="74" y="80" width="6" height="6" fill="#000"/><rect x="44" y="68" width="6" height="6" fill="#000"/>
+                  <rect x="50" y="74" width="6" height="6" fill="#000"/><rect x="44" y="80" width="6" height="6" fill="#000"/>
+                  <rect x="10" y="44" width="6" height="6" fill="#000"/><rect x="22" y="44" width="6" height="6" fill="#000"/>
+                  <rect x="34" y="44" width="6" height="6" fill="#000"/><rect x="16" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="28" y="50" width="6" height="6" fill="#000"/><rect x="10" y="56" width="6" height="6" fill="#000"/>
+                </svg>
+              </div>
+              <div style="text-align:center;font-size:.78rem;color:var(--mut);margin-top:.4rem">Payment expires in <span id="countdown" style="color:var(--err);font-weight:700">15:00</span></div>
+            </div>
+          </div>
+          <div style="border:2px dashed rgba(255,255,255,.1);border-radius:9px;padding:1.2rem;text-align:center;cursor:pointer;transition:border-color .2s;margin-bottom:.75rem"
+            onclick="document.getElementById('rfile').click()"
+            onmouseover="this.style.borderColor='rgba(240,180,41,.35)'"
+            onmouseout="this.style.borderColor='rgba(255,255,255,.1)'">
+            <input type="file" id="rfile" accept="image/*" style="display:none" onchange="prevReceipt(this)">
+            <div style="font-size:1.4rem;margin-bottom:.25rem">📤</div>
+            <div style="font-size:.81rem;color:var(--mut)">Upload payment screenshot</div>
+            <div id="rfn" style="color:var(--ok);font-size:.76rem;font-weight:600;margin-top:.25rem"></div>
+          </div>
+          <img id="cprev" alt="Receipt" style="display:none;max-width:100%;max-height:130px;border-radius:7px;border:1px solid var(--bord);margin-bottom:.75rem">
+          <button class="btn btn-blue btn-full" style="border-radius:9px;padding:.82rem;font-size:.92rem;margin-bottom:.4rem" onclick="submitOrder()">I Have Sent Payment</button>
+          <div style="text-align:center;font-size:.7rem;color:var(--mut)">🔒 Secured with Blockjack Payments</div>
+          <div style="text-align:center;margin-top:.6rem"><a style="color:var(--mut);font-size:.72rem;cursor:pointer" onclick="go('explore')">← Back to Explore</a></div>
+        </div>
+      </div>
+      <div class="csum">
+        <div class="csum-t">Order Summary</div>
+        <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.9rem;padding-bottom:.9rem;border-bottom:1px solid var(--bord)">
+          <div style="width:34px;height:34px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:#000;font-weight:900">★</div>
+          <div style="font-weight:700;font-size:.88rem" id="cpname">—</div>
+        </div>
+        <div class="csum-row"><span>Shares</span><span id="cqd">1</span></div>
+        <div class="csum-row"><span>Unit Price</span><span id="cup">—</span></div>
+        <div class="csum-tot"><span>Total</span><span id="ctot" style="color:var(--gold)">—</span></div>
+        <div style="margin-top:.9rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.16);border-radius:8px;padding:.7rem">
+          <div style="color:var(--ok);font-weight:700;font-size:.78rem;margin-bottom:.18rem">✓ 30-Day Guarantee</div>
+          <div style="color:var(--mut);font-size:.72rem">Not satisfied? Full refund.</div>
+        </div>
+        <div style="margin-top:.6rem;background:rgba(240,180,41,.05);border:1px solid rgba(240,180,41,.16);border-radius:8px;padding:.7rem">
+          <div style="color:var(--gold);font-weight:700;font-size:.78rem;margin-bottom:.18rem">⚡ Wallet = Instant</div>
+          <div style="color:var(--mut);font-size:.72rem">Fund wallet for immediate delivery.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DELIVERED ===== -->
+<div id="delivered" class="page">
+  <div class="deliv-wrap">
+    <div class="deliv-icon">🎉</div>
+    <div class="deliv-t">Investment Confirmed!</div>
+    <p style="color:var(--mut);margin-bottom:2rem;font-size:.88rem">Your shares and access details are below. Save them!</p>
+    <div class="cred-box">
+      <div class="cred-bt">🌟 Your Access Details</div>
+      <div id="credLines"></div>
+    </div>
+    <div style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.16);border-radius:8px;padding:.8rem;font-size:.82rem;color:var(--mut);margin-bottom:1.1rem">📧 Details sent to your email address.</div>
+    <button class="btn btn-gold btn-full btn-lg" style="border-radius:9px" onclick="go('dashboard')">Go to Dashboard →</button>
+  </div>
+</div>
+
+<!-- ===== ADMIN ===== -->
+<div id="admin" class="page">
+  <nav style="z-index:1000;background:rgba(8,14,24,.97)">
+    <div class="logo"><span class="star">★</span> StarShare</div>
+    <div class="nav-links">
+      <span class="tag t-y" style="font-size:.62rem">⚙ Admin Panel</span>
+      <button class="btn btn-ghost btn-sm" onclick="doLogout()">Logout</button>
+    </div>
+  </nav>
+  <div class="dash-layout">
+    <div class="dash-sb">
+      <div class="sb-sec">Overview</div>
+      <div class="sb-i on" onclick="atab('aov');sOn(this)"><span class="ic">📊</span> Overview</div>
+      <div class="sb-div"></div>
+      <div class="sb-sec">Manage</div>
+      <div class="sb-i" onclick="atab('aord');sOn(this)"><span class="ic">📦</span> Orders</div>
+      <div class="sb-i" onclick="atab('ausr');sOn(this)"><span class="ic">👥</span> Users</div>
+      <div class="sb-i" onclick="atab('acreds');sOn(this)"><span class="ic">🗝️</span> Credentials</div>
+      <div class="sb-div"></div>
+      <div class="sb-i" onclick="atab('arep');sOn(this)"><span class="ic">📈</span> Reports</div>
+      <div class="sb-i" onclick="atab('aset');sOn(this)"><span class="ic">⚙️</span> Settings</div>
+      <div class="sb-div"></div>
+      <div class="sb-i" onclick="go('home')"><span class="ic">🌐</span> View Site</div>
+    </div>
+    <div class="dash-main">
+      <div id="aov" class="asec on">
+        <div class="dash-hd"><div><h1>Overview</h1><p>Platform metrics</p></div><button class="btn btn-ghost btn-sm" onclick="loadStats()">↻ Refresh</button></div>
+        <div class="akpis">
+          <div class="ak"><div class="ak-l">Revenue</div><div class="ak-v" style="color:var(--ok)" id="arev">$0</div></div>
+          <div class="ak"><div class="ak-l">Users</div><div class="ak-v" id="ausr2">0</div></div>
+          <div class="ak"><div class="ak-l">Orders</div><div class="ak-v" id="aord2">0</div></div>
+          <div class="ak"><div class="ak-l">Awaiting</div><div class="ak-v" style="color:var(--gold)" id="aawt">0</div></div>
+          <div class="ak"><div class="ak-l">Released</div><div class="ak-v" style="color:var(--ok)" id="arel">0</div></div>
+          <div class="ak"><div class="ak-l">Banned</div><div class="ak-v" style="color:var(--err)" id="aban">0</div></div>
+        </div>
+        <div class="panel"><div class="panel-t">Recent Orders</div><div id="arec"><p style="color:var(--mut);font-size:.83rem">No orders yet.</p></div></div>
+      </div>
+      <div id="aord" class="asec">
+        <div class="dash-hd"><div><h1>Orders</h1><p>Review and release</p></div></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem;flex-wrap:wrap;gap:.5rem">
+          <div style="display:flex;gap:.38rem;flex-wrap:wrap">
+            <button class="btn btn-ghost btn-sm" onclick="faord('all')">All</button>
+            <button class="btn btn-ghost btn-sm" onclick="faord('await')">Awaiting</button>
+            <button class="btn btn-ghost btn-sm" onclick="faord('rel')">Released</button>
+          </div>
+          <input style="background:rgba(255,255,255,.05);border:1px solid var(--bord);color:var(--txt);padding:.4rem .78rem;border-radius:7px;font-family:'Inter';font-size:.82rem;outline:none;width:190px" placeholder="Search..." oninput="stbl(this,'aotb')">
+        </div>
+        <div class="tbl-wrap"><table class="tbl" id="aotb"><thead><tr><th>Order</th><th>Customer</th><th>Product</th><th>Amount</th><th>Receipt</th><th>Status</th><th>Actions</th></tr></thead><tbody id="aotbd"><tr><td colspan="7" style="color:var(--mut);padding:2rem;text-align:center">No orders yet.</td></tr></tbody></table></div>
+      </div>
+      <div id="ausr" class="asec">
+        <div class="dash-hd"><div><h1>Users</h1></div></div>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Name</th><th>Email</th><th>Orders</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead><tbody id="autbd"><tr><td colspan="6" style="color:var(--mut);padding:2rem;text-align:center">No users yet.</td></tr></tbody></table></div>
+      </div>
+      <div id="acreds" class="asec">
+        <div class="dash-hd"><div><h1>Credentials</h1><p>Pre-load access details for auto-delivery</p></div></div>
+        <div class="panel" style="margin-bottom:1.1rem">
+          <div class="panel-t">Add New</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem">
+            <div class="fg"><label>Product</label>
+              <select id="credProd">
+                <option value="">Select...</option>
+                <option>Matt Rife — Investment Share</option>
+                <option>Stephen Amell — Investment Share</option>
+                <option>Pedro Pascal — Investment Share</option>
+                <option>Lexie Hull — Investment Share</option>
+                <option>Sophie Cunningham — Investment Share</option>
+                <option>Meet & Greet Pass</option>
+                <option>VIP Backstage Access</option>
+                <option>1-on-1 Video Call</option>
+                <option>Digital Fan Card</option>
+                <option>VIP Fan Membership</option>
+                <option>Early Access Content</option>
+              </select>
+            </div>
+            <div class="fg"><label>Format (pipe-separated keys)</label><input type="text" id="credFormat" placeholder="Code|Link|Date|Notes"></div>
+          </div>
+          <div class="fg" style="margin-bottom:.75rem"><label>Credentials — one per line</label><textarea id="credData" placeholder="CODE123|https://zoom.us/j/123|Jan 20|Bring ID&#10;CODE456|https://zoom.us/j/456|Jan 21|Bring ID" style="font-family:monospace;font-size:.78rem;min-height:95px"></textarea></div>
+          <button class="btn btn-gold" onclick="saveCredentials()">💾 Save Credentials</button>
+        </div>
+        <div class="panel">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem">
+            <div class="panel-t" style="margin:0">Stored</div>
+            <select id="credFilter" style="background:rgba(255,255,255,.05);border:1px solid var(--bord);color:var(--txt);padding:.3rem .65rem;border-radius:7px;font-family:'Inter';font-size:.78rem;outline:none" onchange="renderCreds()"><option value="">All</option></select>
+          </div>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Product</th><th>Preview</th><th>Status</th><th>Added</th><th>Action</th></tr></thead><tbody id="credTbody"><tr><td colspan="5" style="color:var(--mut);padding:2rem;text-align:center">No credentials yet.</td></tr></tbody></table></div>
+        </div>
+      </div>
+      <div id="arep" class="asec">
+        <div class="dash-hd"><div><h1>Reports</h1></div></div>
+        <div class="akpis">
+          <div class="ak"><div class="ak-l">Revenue</div><div class="ak-v" style="color:var(--ok)" id="rrev">$0</div></div>
+          <div class="ak"><div class="ak-l">Orders</div><div class="ak-v" id="rord">0</div></div>
+          <div class="ak"><div class="ak-l">Released</div><div class="ak-v" id="rrel">0</div></div>
+          <div class="ak"><div class="ak-l">Cancelled</div><div class="ak-v" style="color:var(--err)" id="rcan">0</div></div>
+        </div>
+        <div class="panel"><div class="panel-t">All Orders</div><div id="rlist" style="color:var(--mut);font-size:.83rem">No orders yet.</div></div>
+      </div>
+      <div id="aset" class="asec">
+        <div class="dash-hd"><div><h1>Settings</h1></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:820px">
+          <div class="panel"><div class="panel-t">Admin Password</div>
+            <div class="fg"><label>New Password</label><input type="password" id="npw" placeholder="New password"></div>
+            <div class="fg"><label>Confirm</label><input type="password" id="npw2" placeholder="Confirm password"></div>
+            <button class="btn btn-gold" onclick="chgPw()">Update Password</button>
+          </div>
+          <div class="panel"><div class="panel-t">Danger Zone</div>
+            <p style="color:var(--mut);font-size:.8rem;margin-bottom:.85rem">Irreversible actions.</p>
+            <div style="display:flex;flex-direction:column;gap:.55rem">
+              <button class="btn" style="background:var(--err);color:#fff;border-radius:7px" onclick="conf('Clear all orders?','All records deleted.',()=>{DB.orders=[];rstats();toast('Orders cleared.');})">Clear All Orders</button>
+              <button class="btn" style="background:var(--err);color:#fff;border-radius:7px" onclick="conf('Delete all users?','All accounts removed.',()=>{DB.users=[];rstats();toast('Users deleted.');})">Delete All Users</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RELEASE MODAL -->
+<div class="mo" id="relmo">
+  <div class="rel-mo">
+    <h3>🗝️ Release Access Details</h3>
+    <p style="color:var(--mut);font-size:.81rem;margin-bottom:.9rem">Enter details to deliver to the buyer.</p>
+    <div class="fg"><label>Order ID</label><input type="text" id="rid" readonly style="background:rgba(255,255,255,.03)"></div>
+    <div class="fg"><label>Customer Email</label><input type="email" id="rem2" readonly style="background:rgba(255,255,255,.03)"></div>
+    <div class="fg"><label>Access Code / Username</label><input type="text" id="ruser" placeholder="e.g. VIP-CODE-4829"></div>
+    <div class="fg"><label>Link / Password</label><input type="text" id="rpass" placeholder="e.g. https://meet.link/session"></div>
+    <div class="fg"><label>Notes (optional)</label><textarea id="rext" placeholder="Date, time, location..." style="min-height:52px"></textarea></div>
+    <div class="mo-btns">
+      <button class="btn btn-ghost" onclick="closeRel()">Cancel</button>
+      <button class="btn btn-gold" onclick="doRelease()">✉ Release & Notify</button>
+    </div>
+  </div>
+</div>
+
+<!-- RECEIPT MODAL -->
+<div class="mo" id="rcptmo">
+  <div class="mo-box" style="max-width:450px;text-align:left">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem">
+      <h2 style="font-size:1.05rem">Payment Receipt</h2>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('rcptmo').classList.remove('open')">✕</button>
+    </div>
+    <img id="rcptimg" src="" alt="Receipt" style="max-width:100%;border-radius:7px;border:1px solid var(--bord)">
+    <p id="rcptinfo" style="color:var(--mut);font-size:.76rem;margin-top:.45rem"></p>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="mo" id="sucmo">
+  <div class="mo-box">
+    <div class="mo-icon">✅</div>
+    <h2>Order Submitted!</h2>
+    <p>Receipt received! We'll confirm and send your access details to your email and dashboard.</p>
+    <p style="font-size:.74rem;color:var(--mut)">Order: <strong style="color:var(--txt)">#SS-<span id="oid">00000</span></strong></p>
+    <div style="display:flex;gap:.55rem;justify-content:center;flex-wrap:wrap;margin-top:.95rem">
+      <button class="btn btn-gold" onclick="closeSuc();go('dashboard')">Go to Dashboard</button>
+      <button class="btn btn-ghost" onclick="closeSuc();go('explore')">Explore More</button>
+    </div>
+  </div>
+</div>
+
+<!-- DEPOSIT MODAL -->
+<div class="mo" id="depmo">
+  <div class="dep-mo">
+    <h3>💰 Deposit Funds</h3>
+    <p style="color:var(--mut);font-size:.82rem;margin-bottom:1.1rem">Add money to your wallet. Minimum $5.</p>
+    <div class="fg" style="margin-bottom:.9rem"><label>Amount (USD)</label><input type="number" id="depAmount" placeholder="e.g. 100" min="5" style="font-size:1.05rem"></div>
+    <div style="display:flex;gap:.55rem">
+      <button class="btn btn-ghost" style="flex:1;border-radius:7px" onclick="closeDeposit()">Cancel</button>
+      <button class="btn btn-gold" style="flex:2;border-radius:7px" id="depBtn" onclick="doDeposit()">Pay with Paystack →</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="mo" id="confmo">
+  <div class="mo-box2">
+    <h3 id="ct">Are you sure?</h3>
+    <p id="cb" style="color:var(--mut);font-size:.83rem;margin-bottom:.9rem">This cannot be undone.</p>
+    <div class="mo-btns">
+      <button class="btn btn-ghost" onclick="closeConf()">Cancel</button>
+      <button class="btn" style="background:var(--err);color:#fff;border-radius:7px" id="cok">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+// ── Firebase Init ──
+(async()=>{
+  const{initializeApp}=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js');
+  const{getFirestore,doc,setDoc,getDoc,collection,getDocs,deleteDoc}=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+  const app=initializeApp({apiKey:"AIzaSyALnbcOWMZxQ3S4sUB_vjl3GAxkUmsGI8o",authDomain:"logifyhub-6d127.firebaseapp.com",projectId:"logifyhub-6d127",storageBucket:"logifyhub-6d127.firebasestorage.app",messagingSenderId:"400535870848",appId:"1:400535870848:web:8b35105361ee57f1afb565"});
+  const db=getFirestore(app);
+  window.db=db;window.fsDoc=doc;window.fsSet=setDoc;window.fsGet=getDoc;window.fsColl=collection;window.fsGetDocs=getDocs;window.fsDel=deleteDoc;window.fbReady=true;
+})();
+
+// ── State ──
+let DB={users:[],orders:[],adminPw:'admin123'};
+let CU=null,curOid=null,ctTimer=null;
+let CP={name:'',up:0,rd:null};
+const PK='pk_test_5f298cf9bd105fbf30c8c641c7296f4b774223f9';
+const BTC='bc1que9u32a7ecvezt2ul3dh7vgwe6mvuu3sxmd3ma';
+
+// ── Helpers ──
+const fmt=n=>'$'+Number(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const gid=()=>String(Math.floor(10000+Math.random()*90000));
+const now=()=>new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+const stl=s=>s==='released'?'t-g':s==='cancelled'?'t-r':'t-y';
+const slbl=s=>s==='released'?'Delivered':s==='cancelled'?'Cancelled':'Awaiting';
+
+// ── Firebase Helpers ──
+async function fbWait(){for(let i=0;i<20;i++){if(window.fbReady)return;await new Promise(r=>setTimeout(r,300));}}
+async function fbUsers(){if(!window.db)return DB.users;try{return(await window.fsGetDocs(window.fsColl(window.db,'ss_users'))).docs.map(d=>({id:d.id,...d.data()}));}catch{return DB.users;}}
+async function fbOrders(){if(!window.db)return DB.orders;try{return(await window.fsGetDocs(window.fsColl(window.db,'ss_orders'))).docs.map(d=>({...d.data(),id:d.id}));}catch{return DB.orders;}}
+async function fbSaveUser(u){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'ss_users',String(u.id)),u);}catch(e){console.error(e);}}
+async function fbSaveOrder(o){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'ss_orders',String(o.id)),o);}catch(e){console.error(e);}}
+async function fbGetAdmin(){if(!window.db)return'admin123';try{const d=await window.fsGet(window.fsDoc(window.db,'ss_config','admin'));return d.exists()?d.data().pw:'admin123';}catch{return'admin123';}}
+async function fbSetAdmin(pw){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'ss_config','admin'),{pw});}catch(e){console.error(e);}}
+async function fbGetWallet(uid){if(!window.db)return{balance:0,transactions:[]};try{const d=await window.fsGet(window.fsDoc(window.db,'ss_wallets',String(uid)));return d.exists()?d.data():{balance:0,transactions:[]};}catch{return{balance:0,transactions:[]};}}
+async function fbSaveWallet(uid,w){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'ss_wallets',String(uid)),w);}catch(e){console.error(e);}}
+async function fbGetCreds(){if(!window.db)return[];try{return(await window.fsGetDocs(window.fsColl(window.db,'ss_creds'))).docs.map(d=>({id:d.id,...d.data()}));}catch{return[];}}
+async function fbSaveCred(c){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'ss_creds',String(c.id)),c);}catch(e){console.error(e);}}
+async function fbDelCred(id){if(!window.db)return;try{await window.fsDel(window.fsDoc(window.db,'ss_creds',String(id)));}catch(e){console.error(e);}}
+
+// ── Session Restore ──
+window.addEventListener('load',async()=>{
+  const s=localStorage.getItem('ss_s');
+  if(!s)return;
+  await fbWait();
+  if(s==='admin'){
+    DB.adminPw=await fbGetAdmin();
+    CU='admin';go('admin');await loadStats();
+  } else {
+    const users=await fbUsers();
+    const u=users.find(x=>x.email===s);
+    if(u&&u.status!=='banned'){
+      DB.users=users;DB.orders=await fbOrders();
+      CU=u;loadDash(u);go('dashboard');
+    } else {
+      localStorage.removeItem('ss_s');
+    }
+  }
+});
+
+// ── Navigation ──
+let navHist=[];
+function updateBack(){const b=document.getElementById('backFab');if(b)b.style.display=navHist.length?'block':'none';}
+function go(id){
+  const cur=document.querySelector('.page.active');
+  if(cur&&cur.id!==id)navHist.push(cur.id);
+  if(navHist.length>10)navHist.shift();
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const e=document.getElementById(id);
+  if(e){e.classList.add('active');window.scrollTo(0,0);}
+  updateNavBtns();updateBack();
+}
+function goBack(){
+  if(!navHist.length)return;
+  const p=navHist.pop();
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  const e=document.getElementById(p);
+  if(e){e.classList.add('active');window.scrollTo(0,0);}
+  updateNavBtns();updateBack();
+}
+function scrollHow(){go('home');setTimeout(()=>document.getElementById('how-sec')?.scrollIntoView({behavior:'smooth'}),150);}
+function updateNavBtns(){
+  const l=CU&&CU!=='admin';
+  const ni=document.getElementById('navLogin'),ns=document.getElementById('navSignup'),no=document.getElementById('navLogout'),np=document.getElementById('navPort');
+  if(ni)ni.style.display=l?'none':'';
+  if(ns)ns.style.display=l?'none':'';
+  if(no)no.style.display=l?'':'none';
+  if(np)np.style.display=l?'':'none';
+  const el=document.getElementById('expLogin'),es=document.getElementById('expSignup'),eo=document.getElementById('expLogout');
+  if(el)el.style.display=l?'none':'';
+  if(es)es.style.display=l?'none':'';
+  if(eo)eo.style.display=l?'':'none';
+}
+function epw(id,btn){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';btn.textContent=i.type==='password'?'👁':'🙈';}
+function mobOn(el){document.querySelectorAll('.mob-btn').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
+function filterEx(cat,btn){
+  document.querySelectorAll('#exploreGrid .scard').forEach(c=>{c.style.display=cat==='all'||c.dataset.cat===cat?'':'none';});
+  document.querySelectorAll('#explore .btn').forEach(b=>{
+    if(b===btn){b.className=b.className.replace('btn-ghost','btn-gold');}
+    else{b.className=b.className.replace('btn-gold','btn-ghost');}
+  });
+}
+
+// ── Auth ──
+async function doLogin(){
+  const e=document.getElementById('le').value.trim().toLowerCase();
+  const p=document.getElementById('lp').value;
+  if(!e||!p){toast('Enter email and password.');return;}
+  const btn=document.getElementById('loginBtn');
+  btn.textContent='Signing in...';btn.disabled=true;
+  await fbWait();
+  if(e==='admin@starshare.com'){
+    const adpw=await fbGetAdmin();
+    btn.textContent='Login';btn.disabled=false;
+    if(p!==adpw&&p!=='admin123'){toast('Wrong admin password.');return;}
+    CU='admin';localStorage.setItem('ss_s','admin');
+    go('admin');await loadStats();return;
+  }
+  const users=await fbUsers();
+  DB.users=users;
+  const u=users.find(x=>x.email===e);
+  if(!u){btn.textContent='Login';btn.disabled=false;toast('Account not found.');return;}
+  if(u.pw!==p){btn.textContent='Login';btn.disabled=false;toast('Wrong password.');return;}
+  if(u.status==='banned'){btn.textContent='Login';btn.disabled=false;toast('Account banned. Contact support.');return;}
+  CU=u;
+  if(document.getElementById('rem').checked)localStorage.setItem('ss_s',e);
+  DB.orders=await fbOrders();
+  btn.textContent='Login';btn.disabled=false;
+  loadDash(u);go('dashboard');
+}
+
+async function doRegister(){
+  const f=document.getElementById('rf').value.trim();
+  const l=document.getElementById('rl').value.trim();
+  const e=document.getElementById('re').value.trim().toLowerCase();
+  const ph=document.getElementById('rph').value.trim();
+  const p=document.getElementById('rp').value;
+  const p2=document.getElementById('rp2').value;
+  if(!f||!l||!e||!p){toast('Fill all required fields.');return;}
+  if(p.length<6){toast('Password min 6 characters.');return;}
+  if(p!==p2){toast('Passwords do not match.');return;}
+  const btn=document.getElementById('regBtn');
+  btn.textContent='Creating...';btn.disabled=true;
+  await fbWait();
+  const users=await fbUsers();
+  if(users.find(x=>x.email===e)){btn.textContent='Create Account →';btn.disabled=false;toast('Email already registered.');return;}
+  const u={id:gid(),name:f+' '+l,email:e,phone:ph,pw:p,status:'active',joined:now()};
+  await fbSaveUser(u);
+  DB.users=[...users,u];
+  CU=u;
+  localStorage.setItem('ss_s',e);
+  DB.orders=await fbOrders();
+  btn.textContent='Create Account →';btn.disabled=false;
+  loadDash(u);go('dashboard');
+  toast('Welcome to StarShare! 🌟');
+}
+
+function doLogout(){
+  CU=null;
+  localStorage.removeItem('ss_s');
+  navHist=[];
+  go('home');
+  updateNavBtns();
+}
+
+// ── Dashboard ──
+async function loadDash(u){
+  document.getElementById('dwelcome').textContent='👤 '+u.name.split(' ')[0];
+  document.getElementById('ddate').textContent='Welcome back, '+u.name.split(' ')[0]+'!';
+  document.getElementById('pname').value=u.name||'';
+  document.getElementById('pemail').value=u.email||'';
+  document.getElementById('pphone').value=u.phone||'';
+  await loadWallet();
+  await rdash(u);
+}
+
+async function rdash(u){
+  const orders=DB.orders.filter(o=>o.uid===u.id);
+  // KPIs
+  const invested=orders.reduce((s,o)=>s+(o.status!=='cancelled'?Number(o.total||0):0),0);
+  const passes=orders.filter(o=>o.status==='released').length;
+  document.getElementById('kpval').textContent=fmt(invested);
+  document.getElementById('kreturns').textContent=fmt(invested*0.12);
+  document.getElementById('kpasses').textContent=passes;
+  // Recent
+  const rec=document.getElementById('drecent');
+  if(!orders.length){rec.innerHTML='<p style="color:var(--mut);font-size:.84rem">No activity yet. <a onclick="go(\'explore\')" style="color:var(--gold);cursor:pointer;font-weight:600">Explore stars →</a></p>';return;}
+  rec.innerHTML=orders.slice(-5).reverse().map(o=>`
+    <div class="tx-row">
+      <div class="tx-l">
+        <div class="tx-ico" style="background:rgba(240,180,41,.1)">★</div>
+        <div><div class="tx-desc">${o.product}</div><div class="tx-date">${o.date||''}</div></div>
+      </div>
+      <div style="text-align:right">
+        <div class="tx-a neg">${fmt(o.total||0)}</div>
+        <span class="tag ${stl(o.status)}">${slbl(o.status)}</span>
+      </div>
+    </div>`).join('');
+  // Portfolio
+  const shares=orders.filter(o=>o.type==='share'&&o.status!=='cancelled');
+  const pb=document.getElementById('portBody');
+  if(!shares.length){pb.innerHTML='<p style="color:var(--mut);font-size:.84rem">No investments yet. <a onclick="go(\'explore\')" style="color:var(--gold);cursor:pointer">Browse stars →</a></p>';}
+  else{pb.innerHTML=`<div style="overflow-x:auto"><table class="tbl" style="min-width:400px"><thead><tr><th>Star</th><th>Shares</th><th>Buy Price</th><th>Current</th><th>Profit</th><th>Status</th></tr></thead><tbody>${shares.map(o=>{const cur=Number(o.up||0)*1.12;const prof=cur-Number(o.total||0);return`<tr><td style="font-weight:600">${o.product}</td><td>${o.qty||1}</td><td>${fmt(o.up||0)}</td><td style="color:var(--ok)">${fmt(cur)}</td><td style="color:${prof>=0?'var(--ok)':'var(--err)'}">${prof>=0?'+':''}${fmt(prof)}</td><td><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></td></tr>`;}).join('')}</tbody></table></div>`;}
+  // Passes
+  const exps=orders.filter(o=>o.type==='exp');
+  const passb=document.getElementById('passBody');
+  if(!exps.length){passb.innerHTML='<p style="color:var(--mut);font-size:.84rem">No passes yet.</p>';}
+  else{passb.innerHTML=exps.map(o=>`<div class="tx-row"><div class="tx-l"><div class="tx-ico" style="background:rgba(240,180,41,.1)">🎟️</div><div><div class="tx-desc">${o.product}</div><div class="tx-date">${o.date||''} · ${fmt(o.total||0)}</div></div></div><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></div>`).join('');}
+}
+
+function dsh(id,el){
+  ['dhome','dport','dpasses','dwallet','dprofile'].forEach(s=>{const e=document.getElementById(s);if(e)e.style.display='none';});
+  const t=document.getElementById(id);if(t)t.style.display='block';
+  document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));
+  if(el)el.classList.add('on');
+  if(id==='dwallet')loadWallet();
+}
+
+// ── Wallet ──
+async function loadWallet(){
+  if(!CU||CU==='admin')return;
+  const w=await fbGetWallet(CU.id);
+  const bal=w.balance||0;
+  document.getElementById('wbal').textContent=fmt(bal);
+  document.getElementById('kwbal').textContent=fmt(bal);
+  document.getElementById('wbalChk').textContent=fmt(bal);
+  const log=document.getElementById('wtxlog');
+  const txs=w.transactions||[];
+  if(!txs.length){log.innerHTML='<p style="color:var(--mut);font-size:.84rem">No transactions yet.</p>';return;}
+  log.innerHTML=txs.slice().reverse().map(t=>`
+    <div class="tx-row">
+      <div class="tx-l">
+        <div class="tx-ico" style="background:${t.type==='deposit'?'rgba(34,197,94,.12)':'rgba(240,180,41,.1)'}">
+          ${t.type==='deposit'?'↓':'↑'}
+        </div>
+        <div><div class="tx-desc">${t.desc||t.type}</div><div class="tx-date">${t.date||''}</div></div>
+      </div>
+      <div class="tx-a ${t.type==='deposit'?'pos':'neg'}">${t.type==='deposit'?'+':'-'}${fmt(t.amount||0)}</div>
+    </div>`).join('');
+}
+
+function openDeposit(){document.getElementById('depmo').classList.add('open');}
+function closeDeposit(){document.getElementById('depmo').classList.remove('open');}
+
+async function doDeposit(){
+  if(!CU||CU==='admin'){toast('Login to deposit.');return;}
+  const amt=parseFloat(document.getElementById('depAmount').value);
+  if(!amt||amt<5){toast('Minimum deposit is $5.');return;}
+  const btn=document.getElementById('depBtn');
+  btn.textContent='Loading...';btn.disabled=true;
+  const handler=PaystackPop.setup({
+    key:PK,email:CU.email,amount:Math.round(amt*100),currency:'USD',
+    ref:'SS-DEP-'+gid()+'-'+Date.now(),
+    onClose:()=>{btn.textContent='Pay with Paystack →';btn.disabled=false;},
+    callback:async(res)=>{
+      btn.textContent='Pay with Paystack →';btn.disabled=false;
+      closeDeposit();
+      const w=await fbGetWallet(CU.id);
+      w.balance=(w.balance||0)+amt;
+      w.transactions=w.transactions||[];
+      w.transactions.push({type:'deposit',amount:amt,desc:'Paystack deposit',date:now(),ref:res.reference});
+      await fbSaveWallet(CU.id,w);
+      await loadWallet();
+      toast('✅ $'+amt+' added to wallet!');
+    }
+  });
+  handler.openIframe();
+}
+
+// ── Checkout ──
+function buyShare(name,type,price){
+  CP={name,type,up:price,rd:'share'};
+  openCheckout();
+}
+function buyExp(name,price){
+  CP={name,type:'Experience',up:price,rd:'exp'};
+  openCheckout();
+}
+function openCheckout(){
+  document.getElementById('cpname').textContent=CP.name;
+  document.getElementById('cup').textContent=fmt(CP.up);
+  document.getElementById('cq').value='1';
+  document.getElementById('cqd').textContent='1';
+  document.getElementById('ctot').textContent=fmt(CP.up);
+  document.getElementById('camount').textContent=fmt(CP.up);
+  document.getElementById('btcQty').textContent='1 × '+CP.name;
+  document.getElementById('btcAmt').textContent=fmt(CP.up);
+  document.getElementById('rfn').textContent='';
+  document.getElementById('cprev').style.display='none';
+  document.getElementById('rfile').value='';
+  if(CU&&CU!=='admin'){
+    document.getElementById('cn').value=CU.name||'';
+    document.getElementById('ce').value=CU.email||'';
+    document.getElementById('cph').value=CU.phone||'';
+    document.getElementById('walletBuyBar').style.display='block';
+    loadWallet();
+  } else {
+    document.getElementById('walletBuyBar').style.display='none';
+  }
+  setPay('card');
+  go('checkout');
+}
+
+function uqty(){
+  const q=parseInt(document.getElementById('cq').value)||1;
+  const tot=CP.up*q;
+  document.getElementById('cqd').textContent=q;
+  document.getElementById('ctot').textContent=fmt(tot);
+  document.getElementById('camount').textContent=fmt(tot);
+  document.getElementById('btcQty').textContent=q+' × '+CP.name;
+  document.getElementById('btcAmt').textContent=fmt(tot);
+}
+
+function setPay(m){
+  const isCard=m==='card';
+  document.getElementById('cardBox').style.display=isCard?'block':'none';
+  document.getElementById('cryptoBox').style.display=isCard?'none':'block';
+  document.getElementById('payCardBtn').style.border=isCard?'1.5px solid var(--gold)':'1px solid var(--bord)';
+  document.getElementById('payCardBtn').style.background=isCard?'rgba(240,180,41,.08)':'rgba(255,255,255,.05)';
+  document.getElementById('payCardBtn').style.color=isCard?'var(--gold)':'var(--txt)';
+  document.getElementById('payCryptoBtn').style.border=isCard?'1px solid var(--bord)':'1.5px solid var(--gold)';
+  document.getElementById('payCryptoBtn').style.background=isCard?'rgba(255,255,255,.05)':'rgba(240,180,41,.08)';
+  document.getElementById('payCryptoBtn').style.color=isCard?'var(--txt)':'var(--gold)';
+  if(ctTimer){clearInterval(ctTimer);ctTimer=null;}
+  if(!isCard)startCountdown();
+}
+
+function startCountdown(){
+  let secs=15*60;
+  const el=document.getElementById('countdown');
+  ctTimer=setInterval(()=>{
+    secs--;
+    if(secs<=0){clearInterval(ctTimer);if(el)el.textContent='Expired';return;}
+    const m=Math.floor(secs/60),s=secs%60;
+    if(el)el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+  },1000);
+}
+
+function copyBTC(){
+  navigator.clipboard.writeText(BTC).then(()=>toast('Bitcoin address copied!')).catch(()=>{
+    const t=document.createElement('textarea');t.value=BTC;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);toast('Bitcoin address copied!');
+  });
+}
+
+function prevReceipt(inp){
+  const f=inp.files[0];if(!f)return;
+  document.getElementById('rfn').textContent='✓ '+f.name;
+  const r=new FileReader();
+  r.onload=e=>{
+    const img=document.getElementById('cprev');
+    img.src=e.target.result;img.style.display='block';
+    CP.rd=e.target.result;
+  };
+  r.readAsDataURL(f);
+}
+
+async function submitOrder(){
+  const n=document.getElementById('cn').value.trim();
+  const e=document.getElementById('ce').value.trim();
+  if(!n||!e){toast('Enter your name and email.');return;}
+  if(!document.getElementById('cprev').src||document.getElementById('cprev').style.display==='none'){
+    toast('Please upload your payment screenshot.');return;
+  }
+  const q=parseInt(document.getElementById('cq').value)||1;
+  const tot=CP.up*q;
+  const id=gid();
+  const o={
+    id,uid:CU?CU.id:'guest',name:n,email:e,
+    product:CP.name,type:CP.rd==='share'?'share':'exp',
+    qty:q,up:CP.up,total:tot,
+    receipt:document.getElementById('cprev').src,
+    status:'await',date:now()
+  };
+  await fbSaveOrder(o);
+  DB.orders.push(o);
+  if(ctTimer){clearInterval(ctTimer);ctTimer=null;}
+  document.getElementById('oid').textContent=id;
+  document.getElementById('sucmo').classList.add('open');
+}
+
+async function buyWithWallet(){
+  if(!CU||CU==='admin'){toast('Login required.');return;}
+  const w=await fbGetWallet(CU.id);
+  const q=parseInt(document.getElementById('cq').value)||1;
+  const tot=CP.up*q;
+  if((w.balance||0)<tot){toast('Insufficient wallet balance. Please deposit first.');return;}
+  w.balance=(w.balance||0)-tot;
+  w.transactions=w.transactions||[];
+  w.transactions.push({type:'purchase',amount:tot,desc:q+'× '+CP.name,date:now()});
+  await fbSaveWallet(CU.id,w);
+  const cred=await getNextCredential(CP.name);
+  const id=gid();
+  const o={
+    id,uid:CU.id,name:CU.name,email:CU.email,
+    product:CP.name,type:CP.rd==='share'?'share':'exp',
+    qty:q,up:CP.up,total:tot,
+    status:'released',date:now(),
+    cred:cred||null,walletPay:true
+  };
+  await fbSaveOrder(o);
+  DB.orders.push(o);
+  await loadWallet();
+  if(ctTimer){clearInterval(ctTimer);ctTimer=null;}
+  showDelivered(cred,CP.name,id);
+}
+
+async function getNextCredential(product){
+  const creds=await fbGetCreds();
+  const avail=creds.filter(c=>c.product===product&&c.status==='available');
+  if(!avail.length)return null;
+  const c=avail[0];
+  c.status='used';c.usedDate=now();
+  await fbSaveCred(c);
+  return c;
+}
+
+function showDelivered(cred,product,oid){
+  const cl=document.getElementById('credLines');
+  if(!cred){
+    cl.innerHTML=`
+      <div class="cred-row"><div class="cred-k">Product</div><div class="cred-v">${product}</div></div>
+      <div class="cred-row"><div class="cred-k">Order ID</div><div class="cred-v">#SS-${oid}</div><button class="copy-btn" onclick="navigator.clipboard.writeText('#SS-${oid}');toast('Copied!')">Copy</button></div>
+      <div class="cred-row" style="color:var(--mut);font-size:.8rem;padding:.7rem 0">Access details will be sent to your email within 24 hours.</div>`;
+  } else {
+    const keys=(cred.format||'Code|Link|Date|Notes').split('|');
+    const vals=(cred.data||'').split('|');
+    cl.innerHTML=keys.map((k,i)=>`
+      <div class="cred-row">
+        <div class="cred-k">${k}</div>
+        <div class="cred-v">${vals[i]||'—'}</div>
+        <button class="copy-btn" onclick="navigator.clipboard.writeText('${(vals[i]||'').replace(/'/g,"\\'")}');toast('Copied!')">Copy</button>
+      </div>`).join('');
+  }
+  go('delivered');
+}
+
+// ── Admin ──
+function atab(id){
+  document.querySelectorAll('.asec').forEach(s=>s.classList.remove('on'));
+  const e=document.getElementById(id);if(e)e.classList.add('on');
+  if(id==='aord')raord();
+  if(id==='ausr')rausr();
+  if(id==='acreds')renderCreds();
+  if(id==='arep')rrep();
+}
+
+function sOn(el){
+  document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));
+  if(el)el.classList.add('on');
+}
+
+async function loadStats(){
+  DB.users=await fbUsers();
+  DB.orders=await fbOrders();
+  rstats();raord();rausr();rrep();renderCreds();
+}
+
+function rstats(){
+  const o=DB.orders,u=DB.users;
+  const rev=o.filter(x=>x.status==='released').reduce((s,x)=>s+Number(x.total||0),0);
+  const awt=o.filter(x=>x.status==='await').length;
+  const rel=o.filter(x=>x.status==='released').length;
+  const ban=u.filter(x=>x.status==='banned').length;
+  document.getElementById('arev').textContent=fmt(rev);
+  document.getElementById('ausr2').textContent=u.length;
+  document.getElementById('aord2').textContent=o.length;
+  document.getElementById('aawt').textContent=awt;
+  document.getElementById('arel').textContent=rel;
+  document.getElementById('aban').textContent=ban;
+  const rec=document.getElementById('arec');
+  if(!o.length){rec.innerHTML='<p style="color:var(--mut);font-size:.83rem">No orders yet.</p>';return;}
+  rec.innerHTML=o.slice(-6).reverse().map(x=>`
+    <div class="tx-row">
+      <div class="tx-l">
+        <div class="tx-ico" style="background:rgba(240,180,41,.08)">★</div>
+        <div><div class="tx-desc" style="font-size:.82rem">${x.name} — ${x.product}</div><div class="tx-date">${x.date||''}</div></div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:'Montserrat';font-weight:700;font-size:.85rem">${fmt(x.total||0)}</div>
+        <span class="tag ${stl(x.status)}">${slbl(x.status)}</span>
+      </div>
+    </div>`).join('');
+}
+
+function raord(){
+  const tb=document.getElementById('aotbd');
+  if(!DB.orders.length){tb.innerHTML='<tr><td colspan="7" style="color:var(--mut);padding:2rem;text-align:center">No orders yet.</td></tr>';return;}
+  tb.innerHTML=DB.orders.slice().reverse().map(o=>`
+    <tr>
+      <td><span style="font-family:monospace;font-size:.78rem;color:var(--gold)">#SS-${o.id}</span></td>
+      <td><div style="font-weight:600;font-size:.82rem">${o.name}</div><div style="font-size:.72rem;color:var(--mut)">${o.email}</div></td>
+      <td style="font-size:.82rem">${o.product}</td>
+      <td style="font-family:'Montserrat';font-weight:700">${fmt(o.total||0)}</td>
+      <td>${o.receipt?`<button class="btn btn-ghost btn-sm" onclick="vrcpt('${o.id}')">View</button>`:'<span style="color:var(--mut);font-size:.75rem">None</span>'}</td>
+      <td><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></td>
+      <td>
+        <div class="abs">
+          ${o.status==='await'?`<button class="btn btn-gold btn-sm" onclick="openRel('${o.id}')">Release</button>`:''}
+          ${o.status!=='cancelled'?`<button class="btn btn-sm" style="background:rgba(239,68,68,.1);color:var(--err);border:1px solid rgba(239,68,68,.2)" onclick="cancOrd('${o.id}')">Cancel</button>`:''}
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
+function faord(f){
+  const rows=document.querySelectorAll('#aotbd tr');
+  rows.forEach(r=>{
+    if(f==='all'){r.style.display='';}
+    else if(f==='await'){r.style.display=r.innerHTML.includes('Awaiting')?'':'none';}
+    else if(f==='rel'){r.style.display=r.innerHTML.includes('Delivered')?'':'none';}
+  });
+}
+
+async function cancOrd(id){
+  conf('Cancel this order?','Status set to Cancelled.',async()=>{
+    const o=DB.orders.find(x=>x.id===id);
+    if(!o)return;
+    o.status='cancelled';
+    await fbSaveOrder(o);
+    raord();rstats();toast('Order cancelled.');
+  });
+}
+
+function vrcpt(id){
+  const o=DB.orders.find(x=>x.id===id);if(!o||!o.receipt)return;
+  document.getElementById('rcptimg').src=o.receipt;
+  document.getElementById('rcptinfo').textContent='#SS-'+id+' · '+o.name+' · '+o.date;
+  document.getElementById('rcptmo').classList.add('open');
+}
+
+function openRel(id){
+  const o=DB.orders.find(x=>x.id===id);if(!o)return;
+  curOid=id;
+  document.getElementById('rid').value='#SS-'+id;
+  document.getElementById('rem2').value=o.email;
+  document.getElementById('ruser').value='';
+  document.getElementById('rpass').value='';
+  document.getElementById('rext').value='';
+  document.getElementById('relmo').classList.add('open');
+}
+function closeRel(){document.getElementById('relmo').classList.remove('open');}
+
+async function doRelease(){
+  const o=DB.orders.find(x=>x.id===curOid);if(!o)return;
+  const code=document.getElementById('ruser').value.trim();
+  const link=document.getElementById('rpass').value.trim();
+  const notes=document.getElementById('rext').value.trim();
+  o.status='released';
+  o.cred={format:'Code|Link|Notes',data:code+'|'+link+'|'+notes,product:o.product};
+  await fbSaveOrder(o);
+  closeRel();raord();rstats();
+  toast('✅ Order released!');
+}
+
+function rausr(){
+  const tb=document.getElementById('autbd');
+  if(!DB.users.length){tb.innerHTML='<tr><td colspan="6" style="color:var(--mut);padding:2rem;text-align:center">No users.</td></tr>';return;}
+  tb.innerHTML=DB.users.map(u=>{
+    const ords=DB.orders.filter(o=>o.uid===u.id).length;
+    return`<tr>
+      <td style="font-weight:600">${u.name}</td>
+      <td style="font-size:.8rem;color:var(--mut)">${u.email}</td>
+      <td>${ords}</td>
+      <td style="font-size:.78rem;color:var(--mut)">${u.joined||''}</td>
+      <td><span class="tag ${u.status==='banned'?'t-r':'t-g'}">${u.status==='banned'?'Banned':'Active'}</span></td>
+      <td>
+        <div class="abs">
+          ${u.status!=='banned'?`<button class="btn btn-sm" style="background:rgba(239,68,68,.1);color:var(--err);border:1px solid rgba(239,68,68,.2)" onclick="banU('${u.id}')">Ban</button>`:
+          `<button class="btn btn-ghost btn-sm" onclick="unbanU('${u.id}')">Unban</button>`}
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+async function banU(id){
+  const u=DB.users.find(x=>x.id===id);if(!u)return;
+  conf('Ban this user?','They will not be able to login.',async()=>{
+    u.status='banned';await fbSaveUser(u);rausr();rstats();toast('User banned.');
+  });
+}
+async function unbanU(id){
+  const u=DB.users.find(x=>x.id===id);if(!u)return;
+  u.status='active';await fbSaveUser(u);rausr();rstats();toast('User unbanned.');
+}
+
+function rrep(){
+  const o=DB.orders;
+  const rev=o.filter(x=>x.status==='released').reduce((s,x)=>s+Number(x.total||0),0);
+  const rel=o.filter(x=>x.status==='released').length;
+  const can=o.filter(x=>x.status==='cancelled').length;
+  document.getElementById('rrev').textContent=fmt(rev);
+  document.getElementById('rord').textContent=o.length;
+  document.getElementById('rrel').textContent=rel;
+  document.getElementById('rcan').textContent=can;
+  const rl=document.getElementById('rlist');
+  if(!o.length){rl.innerHTML='No orders yet.';return;}
+  rl.innerHTML=`<div style="overflow-x:auto"><table class="tbl" style="min-width:500px"><thead><tr><th>ID</th><th>Customer</th><th>Product</th><th>Amount</th><th>Date</th><th>Status</th></tr></thead><tbody>${
+    o.map(x=>`<tr><td style="font-family:monospace;font-size:.76rem;color:var(--gold)">#SS-${x.id}</td><td>${x.name}</td><td style="font-size:.8rem">${x.product}</td><td style="font-family:'Montserrat';font-weight:700">${fmt(x.total||0)}</td><td style="font-size:.78rem;color:var(--mut)">${x.date||''}</td><td><span class="tag ${stl(x.status)}">${slbl(x.status)}</span></td></tr>`).join('')
+  }</tbody></table></div>`;
+}
+
+async function saveCredentials(){
+  const prod=document.getElementById('credProd').value;
+  const fmt2=document.getElementById('credFormat').value.trim()||'Code|Link|Date|Notes';
+  const raw=document.getElementById('credData').value.trim();
+  if(!prod||!raw){toast('Select product and enter credentials.');return;}
+  const lines=raw.split('\n').filter(l=>l.trim());
+  for(const line of lines){
+    const c={id:gid(),product:prod,format:fmt2,data:line.trim(),status:'available',added:now()};
+    await fbSaveCred(c);
+  }
+  document.getElementById('credData').value='';
+  toast('✅ '+lines.length+' credential(s) saved!');
+  await renderCreds();
+}
+
+async function renderCreds(){
+  const creds=await fbGetCreds();
+  const filter=document.getElementById('credFilter').value;
+  // populate filter dropdown
+  const cf=document.getElementById('credFilter');
+  const prods=[...new Set(creds.map(c=>c.product))];
+  const cur=cf.value;
+  cf.innerHTML='<option value="">All</option>'+prods.map(p=>`<option value="${p}" ${p===cur?'selected':''}>${p}</option>`).join('');
+  const shown=filter?creds.filter(c=>c.product===filter):creds;
+  const tb=document.getElementById('credTbody');
+  if(!shown.length){tb.innerHTML='<tr><td colspan="5" style="color:var(--mut);padding:2rem;text-align:center">No credentials yet.</td></tr>';return;}
+  tb.innerHTML=shown.map(c=>`
+    <tr>
+      <td style="font-size:.8rem;font-weight:600">${c.product}</td>
+      <td style="font-family:monospace;font-size:.75rem;color:var(--mut);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.data||''}</td>
+      <td><span class="tag ${c.status==='used'?'t-gr':'t-g'}">${c.status==='used'?'Used':'Available'}</span></td>
+      <td style="font-size:.75rem;color:var(--mut)">${c.added||''}</td>
+      <td><button class="btn btn-sm" style="background:rgba(239,68,68,.1);color:var(--err);border:1px solid rgba(239,68,68,.2)" onclick="delCred('${c.id}')">Delete</button></td>
+    </tr>`).join('');
+}
+
+async function delCred(id){
+  conf('Delete this credential?','Cannot be undone.',async()=>{
+    await fbDelCred(id);toast('Deleted.');await renderCreds();
+  });
+}
+
+async function chgPw(){
+  const p1=document.getElementById('npw').value;
+  const p2=document.getElementById('npw2').value;
+  if(!p1||p1.length<6){toast('Min 6 characters.');return;}
+  if(p1!==p2){toast('Passwords do not match.');return;}
+  await fbSetAdmin(p1);
+  DB.adminPw=p1;
+  document.getElementById('npw').value='';
+  document.getElementById('npw2').value='';
+  toast('✅ Admin password updated!');
+}
+
+// ── Modals ──
+function conf(title,body,cb){
+  document.getElementById('ct').textContent=title;
+  document.getElementById('cb').textContent=body;
+  const btn=document.getElementById('cok');
+  btn.onclick=()=>{closeConf();cb();};
+  document.getElementById('confmo').classList.add('open');
+}
+function closeConf(){document.getElementById('confmo').classList.remove('open');}
+function closeSuc(){document.getElementById('sucmo').classList.remove('open');}
+
+// Close modals on backdrop click
+document.querySelectorAll('.mo').forEach(m=>{
+  m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});
+});
+
+// ── Table Search ──
+function stbl(inp,tid){
+  const q=inp.value.toLowerCase();
+  const rows=document.querySelectorAll('#'+tid+' tbody tr');
+  rows.forEach(r=>{r.style.display=r.textContent.toLowerCase().includes(q)?'':'none';});
+}
+
+// ── Toast ──
+let toastTimer=null;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.style.transform='translateY(0)';
+  t.style.opacity='1';
+  if(toastTimer)clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>{t.style.transform='translateY(100px)';t.style.opacity='0';},3200);
+}
+</script>
+</body>
+</html>
